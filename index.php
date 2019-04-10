@@ -14,10 +14,15 @@ require_once ('vendor/autoload.php');
 
 //create an instance of the Base class
 $f3 = Base::instance();
+//Turn on Fat-Free error reporting
+$f3->set('DEBUG', 3);
 
 // Define a default route
 $f3->route('GET /' , function (){
-    echo '<h1>Hola</h1>';
+
+    //Display a view
+    $view = new Template();
+    echo $view->render('views/home2.html');
 });
 
 
